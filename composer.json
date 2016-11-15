@@ -1,0 +1,41 @@
+{
+    "name": "postmatic/comment-iq-api-client",
+    "type": "library",
+    "description": "A WordPress client for the CommentIQ HTTP API",
+    "keywords": ["commentiq", "api"],
+    "homepage": "https://github.com/postmatic/comment-iq-api-client",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Carl Alexander",
+            "email": "contact@carlalexander.ca"
+        },
+        {
+            "name": "Dylan Kuhn",
+            "email": "dylan@gopostmatic.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+			"Postmatic\\CommentIQ\\": "psr-4"
+		}
+    },
+    "require": {
+        "php": ">=5.3.3"
+    },
+	"require-dev": {
+		"wp-coding-standards/wpcs": "^0.10.0"
+	},
+	"scripts": {
+		"post-install-cmd": [
+			"phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs",
+			"ln -sf ../../bin/pre-commit.sh .git/hooks/pre-commit"
+		],
+		"format": [
+			"phpcbf --standard=WordPress --exclude=Generic.Files.LowercasedFilename psr-4"
+		],
+		"sniff": [
+			"phpcs --standard=WordPress --exclude=Generic.Files.LowercasedFilename psr-4"
+		]
+	}
+}
