@@ -12,6 +12,9 @@
 
 namespace Postmatic\CommentIQ\API;
 
+use WP_Http;
+use WP_Error;
+
 /**
  * The comment IQ API Client.
  *
